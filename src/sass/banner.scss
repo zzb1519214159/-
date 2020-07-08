@@ -1,0 +1,302 @@
+
+.category-box{
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #dd00a7;
+    background: #f8f8f8;
+  .category-wbox{
+      width: 1200px;
+      height: 40px;
+      margin: 0 auto;
+      display: flex;
+  }
+  .category-navBox{
+      width: 200px;
+  }
+  .category-navBox h2{
+      height: 40px;
+      width: 200px;
+      text-align: center;
+      color: #585858;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 40px;
+    background-color: #f1f1f1;
+  }
+//  侧边栏
+  .navBox{
+    width: 200px;
+    height: 450px;
+    background: #333;
+    opacity: .7;
+    }
+    .navBox li{
+        height: 30px;
+        padding-left: 15px;
+        width:100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+    }
+    .navBox li a{
+        font-size: 14px;
+        color: #fff;
+        margin-right: 5px;
+    }
+    .navBox li:hover{
+        background-color: #fbfbfb;
+    }
+    .navBox li:hover a{
+        color: #333;
+    }
+
+
+    .mainnav{
+        width: calc(100% - 200px);
+        display: flex;
+        align-items: center;
+    }
+    .mainnav li{
+        height: 40px;
+        padding: 0 13px;
+        display: flex;
+        align-items: center;
+    }
+    .mainnav li a{
+        font-size: 14px;
+        color: #000;
+    }
+    .mainnav li a:hover{
+        color: $hover;
+    }
+    .mainnav span{
+        width: 1px;
+        height: 13px;
+        background-color: #b2b2b2;
+        display:block;
+    }
+}
+// ban脑图部分
+.banner-con{
+    width: 100%;
+    height: 450px;
+    background: rgb(222, 253, 247); 
+    .banner-img{
+        width: 1200px;
+        height: 450px;
+        margin: 0 auto;
+        padding-left: 200px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        .swiper-wrapper div{
+            width: 750px;
+            height: 450px;
+        }
+        .swiper-container{
+            width: 750px;
+            height: 450px;
+            margin: 0;
+        }
+        .swiper-pagination-bullet{
+            width: 30px;
+            height: 5px;
+            border-radius: 0;
+        }
+        .swiper-pagination-bullet-active{
+            background-color: $hover;
+        }
+        .swiper-but{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: flex-end !important;
+            position:absolute;
+            top: 50%;
+        }
+        .swiper-but div{
+            position: static;
+            height: 80px;
+            width: 40px;
+            background-color: #000;
+            opacity: .3;
+        }
+
+        .gm_sever{
+            width: 250px;
+            height: 430px;
+            background-color: #fff;
+            overflow: hidden;
+            .gome_news{
+                height:147px;
+                width: 220px;
+                margin: 0 15px;
+                overflow: hidden;
+                border-bottom: 1px dashed #ccc;
+            }
+            .gome_news_title{
+                height: 36px;
+                width: 100%;
+            }
+            .gome_news_title h2{
+                padding-top: 12px;
+                font-size: 12px;
+                color: #333;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .gome_news_title h2 a{
+                font-size: 12px;
+                color: #888;
+            }
+            .server_box{
+                height:146px;
+                width: 220px;
+                margin: 0 15px;
+            }
+            .edit-mode{
+                width: 100%;
+                margin-top: 7px;
+            }
+            .gome_news_con span{
+                display: flex;
+                width: 100%;
+            }
+            .gome_news_con span a{
+                font-size: 12px;
+                color: #888888;
+            }
+            .gome_news_con span a:hover{
+                color: $hover;
+            }
+            .gome_news_con span a:nth-child(1){
+                width: 24px;
+                height: 26px;
+                overflow: hidden;
+                margin-right: 7px;
+               line-height: 26px;
+            }
+            .gome_news_con span a:nth-child(2){
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 196px;
+                line-height: 26px;
+            }
+            .server_box {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .server_box div{
+                width: 55px;
+                height: 70px;
+               margin-right: 28px;
+               padding-top: 2px;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+            }
+            .server_box div i{
+                color: #373737;
+                font-size: 32px;
+            }
+            p{
+                width: 100%;
+                text-align: center;
+                color: #5e5e5e;
+                font-size: 12px;
+                cursor: pointer;
+                margin-top: 3px;
+            }
+        }
+    }
+  
+}
+
+
+// 抢购部分
+.countdown_main{
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 252px;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    .countdown_left{
+        height: 252px;
+        width: 950px;
+        border-top: 1px solid #dd00a7;
+    }
+    .countdown_left_title{
+        height: 40px;
+        width: 100%;
+        border-left: 1px solid #e6e6e6;
+        border-right: 1px solid #e6e6e6;
+        border-top: 0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+    }
+    .countdown_left_title p{
+        font-size: 18px;
+        color: #f5004b;
+    }
+    .countdown_left_con{
+        width: 100%;
+        height: 209px;
+        border-bottom: 1px solid #e6e6e6;
+    }
+    .countdown_left_con ul{
+        display: flex;
+        justify-content: space-between;
+        border-left: 1px solid #e6e6e6;
+     
+    }
+    .countdown_left_con ul li{
+        height:209px;
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #e6e6e6;
+        border-left: 0;
+    }
+    .countdown_left_con ul img{
+        width: 120px;
+        height: 120px;
+        align-self:center;
+    }
+    .countdown_left_con ul span{
+        display: block;
+        margin-left: 20px;
+        box-sizing: border-box;
+        color: #ff0027;
+        font-size: 20px;
+        margin-top: 6px;
+    }
+
+    .countdown_left_con ul  p{
+        color: #5e5e5e;
+        font-size: 12px;
+        line-height: 18px;
+        margin: 0 20px;
+        overflow: hidden;
+        height: 18px;
+    }
+    .countdown_right{
+        height: 252px;
+        width: 240px;
+        border: 1px solid #e6e6e6;
+        border-top-color: #dd00a7;
+    }
+    .countdown_right img{
+        width: 100%;
+        height: 100%;
+    }
+    
+}

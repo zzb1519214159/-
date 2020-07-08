@@ -1,0 +1,65 @@
+{
+  "id": "1924020",
+  "name": "国美商城",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5304493",
+      "name": "左箭头",
+      "font_class": "right1",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "8909015",
+      "name": "左箭头",
+      "font_class": "right-angle",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "30096",
+      "name": "流量限制",
+      "font_class": "liuliangxianzhi",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "705935",
+      "name": "手机话费",
+      "font_class": "shoujihuafei",
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    },
+    {
+      "icon_id": "7247046",
+      "name": "优惠卷1",
+      "font_class": "youhuijuan",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "7634601",
+      "name": "皇冠",
+      "font_class": "huangguan",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "8021718",
+      "name": "服 务",
+      "font_class": "-handshake",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "8929610",
+      "name": "帮 助 (1)",
+      "font_class": "bangzhu",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    }
+  ]
+}

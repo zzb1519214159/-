@@ -1,0 +1,242 @@
+.search-con{
+    width: 990px;
+    .search_waps{
+        display: none;
+    }
+    .cat{
+        display: none;
+    }
+    .logo>a{
+        width:300px;
+        height: 62px;
+        background-image:url(../images/login/a997e1dd-7381-4a07-956a-94fc41fd010f.png);
+        background-repeat: no-repeat;
+        background-position: left center;
+    }
+}
+.footer{
+    background-color: #ffffff;
+    height: 204px;
+    .footer-con{
+        width: 990px;
+        background-color: #ffffff;
+        .footer_wx{
+            display: none;
+        }
+        .clearfix{
+            display: none;
+        }
+    }
+}
+.login_top{
+    width: 100%;
+    height: 30px;
+    background-color: #fff4e3;
+    border-top: 1px solid #fee6bc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+        width: 828px;
+         height: 29px;
+         padding-left: 10px;
+         margin: 0 auto;
+         background-color: #fff4e3;
+         color: #ff7f23;
+         font-size: 12px;
+         line-height: 30px;
+         display: flex;
+         a{
+            color: #2875cc;
+         }
+         em{
+            background-position: -28px 0;
+            display: block;
+            width: 16px;
+            height: 16px;
+            margin: 8px 5px 0 0;
+            background-image: url(../images/login/login-bg-common.png);
+         }
+    }
+}
+.login{
+    width: 100%;
+    height:480px;
+    background-color: #fff1e8;
+
+
+    .login-con{
+        width: 1200px;
+        height: 480px;
+        margin: 0 auto;
+        background-image: url(../images/login/bg.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+       .login-box-wrap {
+            width: 350px;
+            height: 400px;
+            float: right;
+            margin-top: 24px;
+            margin-right: 105px;
+            position: relative;
+            background: #fff;
+            overflow: visible;
+            .login_tab{
+                width: 100%;
+                height: 55px;
+                display: flex;
+                span{
+                    width:50%;
+                    height: 100%;
+                    text-align: center;
+                    line-height: 55px;
+                    font-size: 18px;
+                    color: #5e5e5e;
+                    cursor: pointer;
+                }
+            }
+            .login_tab_con{
+                width: 100%;
+                height: 266px;
+                padding: 25px 11px 0 19px;
+                box-sizing: border-box;
+                .tablon{
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: relative;
+                    display: none;
+                    p{
+                        color: #5e5e5e;
+                        font-size: 12px;
+                    }
+                    a{
+                        position: absolute;
+                        bottom: 10px;
+                        right: 14px;
+                        width: 50px;
+                        height: 18px;
+                        color: #069;
+                        font-size: 12px;
+                     }
+                     a:hover{
+                         border-bottom: 1px solid #f5004b;
+                         color: #f5004b;
+                     }
+                }
+
+                .tablon_from{
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: relative;
+                    display: none;
+                    form{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    form>label{
+                        height: 52px;
+                    }
+                    form>label>input{
+                         padding: 8px 10px 7px;
+                         width: 268px;
+                         height: 25px;
+                         border: 1px solid #CCC;
+                         outline: 0 none;
+                         color: #333;
+                         font-size: 14px;
+                         line-height: 21px;
+                         z-index: 2;
+                    }
+                    button{
+                        display: block;
+                        width: 290px;
+                        height: 42px;
+                        background: #ff5757;
+                        font-size: 18px;
+                        color: #fff;
+                        text-align: center;
+                        border: 0 none;
+                        outline: 0;
+                        word-spacing: 3px;
+                        cursor: pointer;
+                    }
+                    p{
+                        width: 100%;
+                        padding: 30px 0 15px;
+                        text-align: left;
+                        font-size: 12px;
+                       
+                        a{
+                            color: #069;
+                        }
+                        a:hover{
+                            border-bottom: 1px solid #f5004b;
+                            color: #f5004b;
+                        }
+                    }
+                }
+                .tablon_from>form>div{
+                    display: flex;
+                    width: 100%;
+                    height: 16px;
+                    justify-content: space-between;
+                    padding: 10px 0 12px;
+                    font-size: 12px;
+                    align-items: center;
+                }
+                .tablon_from>form>div{
+                   a{
+                    color: #5e5e5e;
+                    margin-right: 5px;
+                   }
+                   a:nth-child(2){
+                    color: #069;
+                   }
+                    a:hover{
+                        border-bottom: 1px solid #f5004b;
+                        color: #f5004b;
+                    }
+                }
+                .tablon_from>form>div>label{
+                    display: flex;
+                    align-items: center;
+                    input{
+                       margin-right: 5px;
+                    }
+                }
+            }
+
+        }
+
+      
+    }
+
+    .active{
+        display:flex !important;
+    }
+    .tab_active{
+        color: #f5004b !important;
+    }
+    .login_tab_fot{
+        width: 100%;
+        height: 79px;
+        background-color: #fcfcfc;
+        padding: 9px 20px;
+        color: #a5a5a5;
+        border: 1px solid #f0f0f0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        p{
+            font-size: 12px;
+            word-spacing: 20px;
+        }
+    }
+}
