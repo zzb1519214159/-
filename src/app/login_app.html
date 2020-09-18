@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"> -->
+   <title>国美app登录-千峰2002</title>
+   <link rel="shortcut icon" href="../images/logotop.ico" type="image/x-icon">
+   <script src="./js/flexible.js"></script>
+   <link rel="stylesheet" href="./css/reset.css">
+   <link rel="stylesheet" href="./css/login.css">
+   <link rel="stylesheet" href="../swiper/swiper.min.css">
+   <script src="../js/jquery-1.12.3.min.js"></script>
+   <script src="../js/jquery.cookie.js"></script>
+   <script src="../swiper/swiper.min.js"></script>
+   <script src="../js/axios.js"></script>
+   <script src="../js/layer/layer.js"></script>
+   <script src="./js/isphone.js"></script>
+</head>
+<body>
+    <div class="login_app">
+        <a href="./index_app.html"><img src="./image/lue.png" alt=""></a> 
+        <form class="login_form">
+            <div>
+                <label>
+                    <input type="text" name="uname" placeholder="请输入手机号">
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="password" name="upwd" placeholder="请输入密码">
+                </label>
+            </div>
+            <div>
+                <div class="time_bom">
+                    <input type="checkbox">
+                    未注册手机验证后自动注册,我已阅读并同意
+                        <a href="#">《国美平台服务协议》</a> 
+                        <a href="#">《国美平台隐私政策》</a> 
+                        <a href="#">《美付宝服务协议》</a> 
+                        <a href="#">《国美隐私政策》</a> 
+                </div>
+            
+            </div>
+            <button class="login_btn">登录</button>
+            <p class="ato">
+                <a href="register_app.html">新用户注册</a> </p>
+        </form>
+    </div>
+</body>
+<script>
+        $(function () {
+            noPhone("../login.html");
+//1.使用 axios
+
+axios.defaults.baseUrl = "localhost";
+$("form").submit(function () {
+    var data = $(this).serialize();
+    axios({
+        url: "/api/login",
+        method: "post",
+        data: data
+    }).then(function (res) {
+        console.log(res)
+        console.log(res.data.token)
+        if (res.data.status) {
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("user", JSON.stringify(res.data.data));
+           
+        }
+        if(res.data.status ==1){
+            layer.msg('登录成功');
+            setTimeout(function(){
+                window.location.href = "./index_app.html";
+            },2000)
+        }else{
+            layer.msg('登录失败,请检查账号密码');
+        }
+    })
+
+    return false;
+})
+})
+</script>
+</html>

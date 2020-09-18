@@ -1,0 +1,202 @@
+@charset "utf-8";
+html,body{
+    margin: 0;
+    padding: 0;
+    height:100%;
+}
+/* rem结合vw计算 */
+/* 因为设计图为640px html设置成31.25vw */
+html{
+    font-size:31.25vw;
+    /* 31.25vw == 100px */
+    /* 给rem提供比例   1rem == 100px */
+}
+/* 外层的壳子 */
+#app{
+    width:100%;
+    height:100%;
+}
+/* 导航栏 */
+header{
+    width: 100%;
+    height: 1.6rem;
+    position:fixed;
+    top:0;
+    background-color: #fff;
+    z-index: 999;
+}
+main{
+    width:100%;
+    height: 100%;
+    min-width: 100%;
+    background-color: #f6f6f6;
+    padding:1.6rem 0 .98rem 0;
+
+}
+section{
+    width: 1005;
+   padding-bottom: 1.7rem;
+    background-color: #f6f6f6;
+}
+header>h2{
+    width: 100%;
+    height: .88rem;
+    line-height: .88rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .36rem;
+    font-weight: 700;
+}
+
+header>h2 img{
+    margin: 0 .05rem;
+    width: .28rem;
+    height: .28rem;
+}
+header div{
+    width: 100%;
+    padding: 0 .24rem;
+    height: .72rem;
+    font-size: .28rem;
+    color: #999;
+    margin-bottom: .1rem;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+header div a{
+    width: 1.18rem;
+    height: .44rem;
+    margin-left: auto;
+    padding: 0;
+    text-align: center;
+    line-height: .42rem;
+    border: 1px solid #cacccf;
+    border-radius: .24rem;
+    color: #5a6066;
+    font-size: .26rem;
+}
+
+
+
+.cat_list{
+    width: 90%;
+    height: 3.3rem;
+    background-color: #fff;
+    border-radius: .3rem;
+    margin: 0 auto;
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    padding: .2rem;
+}
+.cat_list>input{
+    width: .48rem;
+    height: .48rem;
+    display: block;
+    margin: 0 .2rem;
+}
+.cat_list img{
+    width: 1.8rem;
+    height: 1.8rem;
+   margin-right: .15rem;
+}
+.cat_list div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.cat_list div h3{
+    font-size: .24rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.cat_list div h6{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: .48rem;
+    justify-content: space-between;
+}
+.cat_list div h6 span{
+    font-size: .26rem;
+    font-weight: bold;
+    color: #fc1e56;
+}
+.cat_list div h6 p{
+    display: flex;
+}
+.cat_list div h6 p input{
+    width: .68rem;
+    height: .38rem;
+    display: block;
+    font-size: .24rem;
+    text-align: center;
+    border-style: none;
+    outline: none;
+}
+.cat_list h6 button{
+    width: .4rem;
+    height: .4rem;
+    background: #f3f5f7;
+    border-radius: .04rem;
+    border-style: none;
+    font-size: .3rem;
+}
+.cat_list div>a{
+    text-align: right;
+    margin-top: .2rem;
+    color: #333;
+}
+footer{
+    width: 100%;
+    height: .98rem;
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    border-top: 1px solid #ccc;
+    height: 1.08rem;
+    background: #fff;
+    display: flex;
+    padding-left: .24rem;
+    align-items: center;
+}
+footer p{
+    height: 100%;
+    font-size: .32rem;
+    display: flex;
+    align-items: center;
+}
+footer p>input{
+    width: .38rem;
+    height: .38rem;
+    display: block;
+    margin-right: .2rem;
+}
+footer h3{
+    font-size:.28rem;
+    flex: 1;
+    text-align: right;
+    margin-right: .2rem;
+}
+footer h3 span{
+    color: #fc1e56;
+    font-weight: bold;
+}
+footer button{
+    width: 2.1rem;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: .32rem;
+    border-radius: 0;
+    padding: 0;
+    background: linear-gradient(90deg,#fa1e8c,#fc1e56);
+    border-style: none;
+    color: #fff;
+}

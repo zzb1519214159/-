@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 20px 0 0;
   background: #f7f7f7;
+  position: relative;
 }
 
 .footer-con .clearfix {

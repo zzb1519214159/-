@@ -1,22 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>国美商城-欢迎注册</title>
+    <link rel="shortcut icon" href="./images/logotop.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/search.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/register.css">
-    <script src="./js/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="./css/jquery.idcode.css">
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <script src="./js/axios.js"></script>
+    <script src="./js/jquery.idcode.js"></script>
     <script src="./js/jquery.cookie.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/login.js"></script>
+    <script src="./js/layer/layer.js"></script>
+    <script src="./js/validation/jquery.validate.min.js"></script>
     <script src="./swiper/swiper.min.js"></script>
+    <script src="./js/register.js"></script>
+    <script src="./js/ispc.js"></script>
+    <style>
+        #sex {
+            padding: 8px 10px 7px;
+            width: 290px;
+            height: 42px;
+            border: 1px solid #ccc;
+            outline: 0 none;
+            color: #333;
+            font-size: 14px;
+            line-height: 21px;
+            z-index: 2;
+        }
+
+        #Txtidcode {
+            width: 155px;
+        }
+        #ehong-code {
+           width: 100px;
+           height: 38px;
+           display: block;
+           float: right;
+        }
+        #ehong-code font{
+            font-size: 35px;
+
+          
+        }
+        #tong{
+            width: 300px;
+            height: 120px;
+            display: none;
+            border-radius: 10px;
+            border: 1px solid #fff;
+            background: linear-gradient(to right, rgb(123, 67, 151), rgb(220, 36, 48));
+            text-align: center;
+           
+        }
+        #tong>h2{
+            font-size: 18px;
+            color: #fff;
+            line-height: 50px;
+            word-spacing: 10px;
+            height: 50px;
+            display: flex;
+            padding: 0 20px;
+            align-items: center;
+            justify-content:space-between;
+        }
+        #tong>h2>img{
+            width: 60px;
+            height: 30px;
+        }
+        #tong h3{
+            font-size: 14px;
+            color: #fff;
+            height: 30px;
+            padding: 0 20px;
+            line-height: 30px;
+        }
+        #tong h3 a{
+            color: #fff;
+        }
+        .layui-layer-shade{
+            opacity: .7 !important;
+        }
+    </style>
 </head>
+
 <body>
+    <div id="tong">
+        <h2><img src="./images/logo.png" alt="">恭喜你注冊成功</h2>
+        <h3>是否现在去<a href="login.html">登录</a></h3>
+    </div>
     <p class="login_ace">
-        我已经注册，现在就  <a href="#">登录</a>
+        我已经注册，现在就 <a href="login.html">登录</a>
     </p>
     <div class="search"> </div>
     <div class="register">
@@ -24,16 +104,28 @@
             <div class="step-slider">
                 <form>
                     <label>
-                        <input type="text" placeholder="请输入用户名">
+                        <input type="text" placeholder="请输入用户名" name="uname">
                     </label>
                     <label>
-                        <input type="password" placeholder="请设置登录密码">
+                        <input type="password" placeholder="请设置登录密码" id="upwd" name="upwd">
                     </label>
                     <label>
-                        <input type="password" placeholder="请确认登录密码">
+                        <input type="password" placeholder="请再次输入密码" name="upwd2">
                     </label>
                     <label>
-                        <input type="text" placeholder="请输入常用手机号"> 
+                        <input type="text" placeholder="请输入常用手机号" name="uphone">
+                    </label>
+                    <label>
+                        <input type="text" placeholder="请输入常用邮箱号" name="uemail">
+                    </label>
+                    <label>
+                        <select id="sex" name="usex">
+                            <option>男</option>
+                            <option>女</option>
+                        </select>
+                    </label>
+                    <label class="code">
+                        <input type="text" id="Txtidcode" class="txtVerification" ><span id="idcode"></span>
                     </label>
                     <button>注册</button>
                 </form>
@@ -42,4 +134,8 @@
     </div>
     <div class="footer"></div>
 </body>
+<script>
+    noPC("./app//register_app.html");
+</script>
+
 </html>

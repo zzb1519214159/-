@@ -4,6 +4,20 @@
 @import './footer.scss';
 @import './search.scss';
 @import './header.scss';
+@import './elevator.scss';
+
+// 弹窗的样式代码
+
+
+#intolk{
+    width: 750px;
+    height: 467px;
+    background-image: url(../images/T1bgV5Bshv1RCvBVdK_750_467.png);
+    background-position: center;
+    background-size: 100%;
+    display: none;
+    background-repeat: no-repeat;
+}
 .column{
     width: 1200px;
     height: 482px;
@@ -13,7 +27,6 @@
     .column_left{
         width: 420px;
         height: 100%;
-
         .column_left_con{
             width: 100%;
             height: 420px;

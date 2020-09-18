@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"> -->
+    <title>国美app注册-千峰2002</title>
+    <link rel="shortcut icon" href="../images/logotop.ico" type="image/x-icon">
+    <script src="./js/flexible.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="../swiper/swiper.min.css">
+    <link rel="stylesheet" href="../css/jquery.idcode.css">
+    <script src="../js/jquery-1.12.3.min.js"></script>
+    <script src="../js/axios.js"></script>
+    <script src="../js/jquery.idcode.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/layer/layer.js"></script>
+    <script src="../js/validation/jquery.validate.min.js"></script>
+    <script src="../swiper/swiper.min.js"></script>
+    <script src="../js/register.js"></script>
+    <script src="./js/isphone.js"></script>
+</head>
+
+<body>
+	  <div id="tong">
+        <h2><img src="./images/logo.png" alt="">恭喜你注冊成功</h2>
+        <h3>是否现在去<a href="login_app.html">登录</a></h3>
+    </div>
+    <div class="register_app">
+       <a href="./index_app.html"><img src="./image/lue.png" alt=""></a> 
+        <form class="register_form">
+            <div>
+                <label>
+                    <input type="text" placeholder="请输入用户名" name="uname">
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="password" placeholder="请设置登录密码" id="upwd" name="upwd">
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="password" placeholder="请再次输入密码" name="upwd2">
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="text" placeholder="请输入常用手机号" name="uphone">
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="text" placeholder="请输入常用邮箱号" name="uemail">
+                </label>
+            </div>
+            <div>
+                <label>
+                    <select id="sex" name="usex">
+                        <option>男</option>
+                        <option>女</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label class="code">
+                    <input type="text" id="Txtidcode" class="txtVerification"><span id="idcode"></span>
+                </label>
+            </div>
+            
+            <button class="register_btn">注册</button>
+            <p class="ato">已有账号,去
+                <a href="login_app.html">登录</a> </p>
+        </form>
+    </div>
+</body>
+<script>
+      noPhone("../register.html");
+</script>
+</html>

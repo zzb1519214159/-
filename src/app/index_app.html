@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <!-- <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"> -->
+    <title>国美商城app</title>
+    <link rel="shortcut icon" href="../images/logotop.ico" type="image/x-icon">
+    <script src="./js/flexible.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="../swiper/swiper.min.css">
+    <script src="../js/jquery-1.12.3.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../swiper/swiper.min.js"></script>
+    <script src="../js/axios.js"></script>
+    <script src="../js/layer/layer.js"></script>
+    <script src="../js/layer/layer.js"></script>
+    <script src="./js/isphone.js"></script>
+</head>
+<body>
+    <div id="app">
+      <header>
+          <div class="nav"> 
+            <a href="#" class="nav_left">
+                <span>长沙市</span>
+            </a>
+            <a href="#" class="nav_con">
+                <img src="./image/sous.png" alt="">
+                <span>国美超市开业钜惠</span>
+            </a>
+            <a href="login_app.html" class="nav_right">
+                登录
+            </a>
+          </div>
+          <div class="main">
+            <ul>
+                <li><a href="#">精选   </a></li>
+                <li><a href="#">国美超市</a></li>
+                <li><a href="#">家居家装</a></li>
+                <li><a href="#">食品百货</a></li>
+                <li><a href="#">橱柜厨具</a></li>
+                <li><a href="#">国美管家</a></li>
+                <li><a href="#">国美家电</a></li>
+                <li><a href="#">舒适家</a></li>
+                <li><a href="#">手机电脑</a></li>
+            </ul>
+          </div>
+      </header>
+      <main>
+          <div class="banner">
+            <div class="swiper-container swiper-container_app">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" style="background-image:url(./image/banner/1.png)"></div>
+                  <div class="swiper-slide" style="background-image:url(./image/banner/2.png)"></div>
+                  <div class="swiper-slide" style="background-image:url(./image/banner/3.png)"></div>
+                  <div class="swiper-slide" style="background-image:url(./image/banner/4.png)"></div>
+                  <div class="swiper-slide" style="background-image:url(./image/banner/5.png)"></div>
+                  <div class="swiper-slide" style="background-image:url(./image/banner/6.png)"></div>
+                  <div class="swiper-slide" style="background-image:url(./image/banner/7.png)"></div>
+                  <div class="swiper-slide" style="background-image:url(./image/banner/8.png)"></div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+              
+              </div>
+          </div>
+            <section>
+                <div class="con_top_img">
+                    <a href="#">
+                        <img src="./image/t1.gif" alt="">
+                    </a>
+                    <div class="con_top_img_mina">
+                        <a href="#">
+                            <img src="./image/le1.png" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./image/ri2.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div  class="list_nab">
+                    <h2>商品列表</h2>
+                  
+                </div>
+            </section>
+       </main>
+       <footer>
+        <a href="index_app.html">
+            <img src="./image/foot/1.png" alt="">
+            <span>首页</span>
+        </a>
+        <a href="login_app.html">
+            <img src="./image/foot/5.png" alt="">
+            <span>登录</span>
+        </a>
+        <a href="register_app.html">
+            <img src="./image/foot/3.png" alt="">
+            <span>注册</span>
+        </a>
+        <a href="cat_app.html">
+            <img src="./image/foot/4.png" alt="">
+            <span>购物车</span>
+        </a>
+     
+       </footer>
+    </div>
+</body>
+<script>
+
+var str=localStorage.getItem("user")
+    if(str != undefined){
+       $('.nav_right').text("已登录");
+    }else{
+       $('.nav_right').text("登录");
+    }
+      noPhone("../index.html");
+
+    var swiper = new Swiper('.swiper-container_app', {
+        autoplay: true,
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    axios.interceptors.request.use(function (config) {
+        config.baseUrl = "localhost";
+        //发送之前,读取token
+        config.headers.token = localStorage.getItem("token")
+        return config;
+    });
+
+    axios({
+        url: "/api/index",
+        method: "get",
+    }).then(function (res) {
+        var str = "";
+        [...res.data.data].forEach(function (el) {
+            
+            str += `<div> <img src=".${el.img}" alt=""><p>${el.name}</p>
+                        <h3>${el.title}</h3>
+                        <span>${el.price}</span>
+                        <button class='add' data-info='${JSON.stringify(el)}'>加入购物车</button>
+                    </div>`;
+        })
+        $('.list_nab').append(str);
+
+
+    })
+
+    $(function () {
+        $(".list_nab").on("click", ".add", function () {
+        		if(!localStorage.getItem("user")){
+            	layer.alert('请先登录账户', 
+            	{icon: 6},function(){
+            		window.location.href = "./login_app.html"
+            	});
+            }
+        
+            var data = $(this).data('info');
+            console.log(data)
+            delete (data.bigImg);
+            delete (data.smallImg);
+            //添加购买睡了
+            data.num = 1;
+            //添加购物人
+            data.uid = JSON.parse(localStorage.getItem("user")).uId
+
+
+            //把data 通过ajax发送到 后台
+
+            $.ajax({
+                url: "../api/cart",
+                type: "post",
+                data: data,
+                headers: {
+                    token: localStorage.getItem("token")
+                },
+            }).then(function (res) {
+                if(res.status == 1){
+                    layer.msg('加入购物车成功');
+                   } else{
+                    layer.msg('加入购物车失败');
+                   }
+            })
+          
+
+        })
+    })
+  </script>
+</html>

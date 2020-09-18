@@ -1,0 +1,113 @@
+[
+    {
+        "id": "1",
+        "name": "Apple iPad 平板电脑 2019年新款 10.2英寸（128G Wifi版/A10 Fusion芯片/视网膜显示屏/MW792CH/A）金色",
+        "title":"【iPad第七代】A10处理器，Fusion芯片，视网膜显示屏，支持笔和键盘~",
+        "price": 2799,
+        "bigImg": "bigimg1",
+        "smallImg": [],
+        "img": "./images/product/pn1.PNG"
+    },
+    {
+        "id": "2",
+        "name": "华为(HUAWEI)MatePad 10.4英寸 麒麟810 八核 窄边框 平板电脑（6G内存/128G存储 WIFI版)夜阑灰",
+        "title":"2K护眼全面屏，麒麟810芯片，海量教育资源，学生党的学习利器，开启未来无限可能",
+        "price": 2099,
+        "bigImg": "bigimg2",
+        "smallImg": [],
+        "img": "./images/product/pn2.PNG"
+    },
+    {
+        "id": "3",
+        "name": "华为(HUAWEI) MatePad Pro 10.8英寸 麒麟990八核 窄边框 平板电脑（8G内存/256G存储 WIFI版)夜阑灰",
+        "title":"麒麟990芯片，速度飞起，90%超高屏占比，多屏协同，智慧轻办公，重构生产力，更多精彩，等您探索哦",
+        "price": 2788,
+        "bigImg": "bigimg3",
+        "smallImg": [],
+        "img": "./images/product/pn3.PNG"
+    },
+    {
+        "id": "4",
+        "name": "华为(HUAWEI) M6 10.8英寸 平板电脑（4G内存/128G存储 WIFI版)香槟金",
+        "title":"搭载麒麟980芯片，邂逅2K炫屏，当电脑模式融入平板电脑，“声”“视”浩大，从“芯”体验，数量有限，抢完即止",
+        "price": 2399,
+        "bigImg": "bigimg4",
+        "smallImg": [],
+        "img": "./images/product/pn4.PNG"
+    },
+    {
+        "id": "5",
+        "name": "小米MI 小米10 双模5G 骁龙865 1亿像素8K电影相机 8GB+256GB 冰海蓝 拍照游戏手机",
+        "title":"小米10,十年梦幻之作",
+        "price": 3999,
+        "bigImg": "bigimg5",
+        "smallImg": [],
+        "img": "./images/product/pn5.PNG"
+    },  
+    {
+        "id": "1",
+        "name": "Apple iPad 平板电脑 2019年新款 10.2英寸（128G Wifi版/A10 Fusion芯片/视网膜显示屏/MW792CH/A）金色",
+        "title":"【iPad第七代】A10处理器，Fusion芯片，视网膜显示屏，支持笔和键盘~",
+        "price": 2799,
+        "bigImg": "bigimg1",
+        "smallImg": [],
+        "img": "./images/product/pn1.PNG"
+    },
+    {
+        "id": "2",
+        "name": "华为(HUAWEI)MatePad 10.4英寸 麒麟810 八核 窄边框 平板电脑（6G内存/128G存储 WIFI版)夜阑灰",
+        "title":"2K护眼全面屏，麒麟810芯片，海量教育资源，学生党的学习利器，开启未来无限可能",
+        "price": 2099,
+        "bigImg": "bigimg2",
+        "smallImg": [],
+        "img": "./images/product/pn2.PNG"
+    },
+    {
+        "id": "3",
+        "name": "华为(HUAWEI) MatePad Pro 10.8英寸 麒麟990八核 窄边框 平板电脑（8G内存/256G存储 WIFI版)夜阑灰",
+        "title":"麒麟990芯片，速度飞起，90%超高屏占比，多屏协同，智慧轻办公，重构生产力，更多精彩，等您探索哦",
+        "price": 2788,
+        "bigImg": "bigimg3",
+        "smallImg": [],
+        "img": "./images/product/pn3.PNG"
+    },
+    {
+        "id": "4",
+        "name": "华为(HUAWEI) M6 10.8英寸 平板电脑（4G内存/128G存储 WIFI版)香槟金",
+        "title":"搭载麒麟980芯片，邂逅2K炫屏，当电脑模式融入平板电脑，“声”“视”浩大，从“芯”体验，数量有限，抢完即止",
+        "price": 2399,
+        "bigImg": "bigimg4",
+        "smallImg": [],
+        "img": "./images/product/pn4.PNG"
+    },
+    {
+        "id": "5",
+        "name": "小米MI 小米10 双模5G 骁龙865 1亿像素8K电影相机 8GB+256GB 冰海蓝 拍照游戏手机",
+        "title":"小米10,十年梦幻之作",
+        "price": 3999,
+        "bigImg": "bigimg5",
+        "smallImg": [],
+        "img": "./images/product/pn5.PNG"
+    },
+    {
+        "id": "3",
+        "name": "华为(HUAWEI) MatePad Pro 10.8英寸 麒麟990八核 窄边框 平板电脑（8G内存/256G存储 WIFI版)夜阑灰",
+        "title":"麒麟990芯片，速度飞起，90%超高屏占比，多屏协同，智慧轻办公，重构生产力，更多精彩，等您探索哦",
+        "price": 2788,
+        "bigImg": "bigimg3",
+        "smallImg": [],
+        "img": "./images/product/pn3.PNG"
+    },
+    {
+        "id": "2",
+        "name": "华为(HUAWEI)MatePad 10.4英寸 麒麟810 八核 窄边框 平板电脑（6G内存/128G存储 WIFI版)夜阑灰",
+        "title":"2K护眼全面屏，麒麟810芯片，海量教育资源，学生党的学习利器，开启未来无限可能",
+        "price": 2099,
+        "bigImg": "bigimg2",
+        "smallImg": [],
+        "img": "./images/product/pn2.PNG"
+    }
+   
+    
+    
+]

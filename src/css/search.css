@@ -56,6 +56,10 @@ u {
   text-decoration: none;
 }
 
+a:hover {
+  color: #e3101e !important;
+}
+
 h1,
 h2,
 h3,

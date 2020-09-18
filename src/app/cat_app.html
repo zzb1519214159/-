@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"> -->
+    <title>国美app购物车-千峰2002</title>
+    <link rel="shortcut icon" href="../images/logotop.ico" type="image/x-icon">
+    <script src="./js/flexible.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/cat.css">
+    <link rel="stylesheet" href="../swiper/swiper.min.css">
+    <script src="../js/jquery-1.12.3.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../swiper/swiper.min.js"></script>
+    <script src="../js/axios.js"></script>
+    <script src="../js/layer/layer.js"></script>
+    <script src="./js/isphone.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h2> 
+            <a href="./index_app.html" style="position: absolute;left: .5rem;"><</a>
+            购物车<img src="./image/gwc.png" alt=""></h2>
+            <div class="cat_uit">
+                <p>立即登录，同步电脑和手机购物车中的商品</p>
+                <a href="login_app.html">去登录</a>
+            </div>
+        </header>
+        <main>
+            <section>
+
+
+
+            </section>
+    </div>
+    </main>
+    <footer>
+        <p>
+            <input type="checkbox" name="" id="ckbox-cx">
+            全选
+        </p>
+        <h3>合计:
+            <span id="zjs"></span>
+        </h3>
+        <button>去结算</button>
+    </footer>
+    </div>
+</body>
+<script>
+    $(function () {
+    	
+   var str=localStorage.getItem("user")
+    if(str != undefined){
+       $('.cat_uit').hide();
+    }else{
+       $('.cat_uit').show();
+    }
+        noPhone("../cart.html");
+		if(!localStorage.getItem("user")){
+            	layer.alert('请先登录账户', 
+            	{icon: 6},function(){
+            		window.location.href = "./login_app.html"
+            	});
+            }
+            
+        $.ajax({
+            url: "../api/getCart",
+            type: "post",
+            headers: {
+                token: localStorage.getItem("token")
+            },
+            data: {
+                uid: JSON.parse(localStorage.getItem("user")).uId
+            }
+        }).then(function (res) {
+            if (!res.data) {
+                return;
+            }
+
+            var str = ``;
+            [...res.data].forEach(function (el) {
+
+                str += `<div class="cat_list">
+                <input type="checkbox" name="">
+                <img src=".${el.gImg}" alt="">
+                <div><h3>${el.gName}</h3><h6>
+                        <span data-tien="${el.gPrice}" id="catzj">${el.gTotal}</span>
+                       <p> <button data-info=${el.cid} class='jian'>-</button><input class='num' value=${el.gNumer}> <button class='jia' data-info=${el.cid}>+</button> </p>
+                    </h6>
+                   
+                    <a data-info=${el.cid} class='del'>删除</a> 
+                </div>
+           </div>`;
+
+            });
+            $("section").append(str);
+            $("#ckbox-cx").on("click", function () {
+                $(":checkbox").prop("checked", $(this).prop('checked'));
+                count()
+            })
+            $('.cat_list :checkbox').click(function () {
+                // checkbox的个数 
+                var $cbxCount = $('.cat_list :checkbox').length;
+                // 被选中的checkbox的个数
+                var $ckedCount = $('.cat_list :checkbox:checked').length;
+                // 拿2个数比较,如果相等 就 最上面的 all 打钩
+                $('#ckbox-cx').prop('checked', $cbxCount == $ckedCount)
+                count()
+            })
+
+        })
+
+
+        $("section").on("click", ".jian", function () {
+
+
+            var num = $(this).next('.num').val();
+            if (num <= 1) {
+                return;
+            }
+            num--;
+
+            $(this).next('.num').val(num);
+
+
+            var price = $(this).parents("p").prev("span").data("tien");
+            $(this).parents("p").prev("span").text(price * num)
+
+
+            count()
+            var cid = $(this).data("info");
+            $.ajax({
+                url: "../api/changeCartNuM",
+                type: 'post',
+                headers: {
+                    token: localStorage.getItem("token")
+                },
+                data: {
+                    cid,
+                    gnumer: num
+                }
+            }).then(function (res) {
+
+            })
+
+
+        });
+        //加法
+        $("section").on("click", ".jia", function () {
+            var num = $(this).prev('.num').val();
+            num++;
+            $(this).prev('.num').val(num);
+
+            var price = $(this).parents("p").prev("span").data("tien");
+            $(this).parents("p").prev("span").text(price * num)
+            count()
+            var cid = $(this).data("info");
+            $.ajax({
+                url: "../api/changeCartNuM",
+                type: 'post',
+                headers: {
+                    token: localStorage.getItem("token")
+                },
+                data: {
+                    cid,
+                    gnumer: num
+                }
+            }).then(function (res) {
+
+            })
+        })
+
+        $("section").on("click", ".del", function () {
+
+            var self = this;
+            if (!confirm("确定要删除吗")) {
+                return;
+            }
+
+            var cid = $(this).data("info");
+            console.log(cid);
+
+            $.ajax({
+                url: "../api/delete",
+                type: "post",
+                headers: {
+                    token: localStorage.getItem("token")
+                },
+                data: {
+                    cid
+                }
+            }).then(function (res) {
+                alert(res.msg);
+                //数据库里 数据真删除后, 删除页面效果
+                window.location.reload()
+                $(self).parents("tr").remove();
+            })
+        })
+
+        function count() {
+            let counts = 0;
+            for (let i = 0; i < $("section :checkbox").length; i++) {
+                if ($("section :checkbox")[i].checked == true) { //注意此块用jquery不好实现
+                    counts += parseInt($(".cat_list").eq(i).children("div").children("h6").children("span").text());
+                    console.log(counts);
+                }
+            }
+            $('#zjs').text(counts);
+        }
+   
+    })
+
+   
+</script>
+
+</html>

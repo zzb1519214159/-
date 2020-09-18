@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国美商城-商品列表</title>
+    <link rel="shortcut icon" href="./images/logotop.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/header.css">
+
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/puctrone.css">
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/axios.js"></script>
+    <script src="./js/layer/layer.js"></script>
+    <script src="./swiper/swiper.min.js"></script>
+    <script src="./js/ispc.js"></script>
+
+
+
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="search"> </div>
+
+    <div class="puctrone">
+        <div class="product-conter">
+            <ul class="product_list">
+
+            </ul>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+<script>
+    axios.interceptors.request.use(function (config) {
+        config.baseUrl = "localhost";
+        //发送之前,读取token
+        config.headers.token = localStorage.getItem("token")
+        return config;
+    });
+
+    axios({
+        url: "/api/puctrone",
+        method: "get",
+    }).then(function (res) {
+
+        var str = "";
+        [...res.data.data].forEach(function (el) {
+            str += `<li><div><a href='./commodity.html?gid=${el.id}'><img src="${el.img}"><p>${el.name}</p><span>${el.price}</span></a><button class='add' data-info='${JSON.stringify(el)}'>加入购物车</button></div></li>`;
+
+        })
+        $('.product_list').append(str);
+
+
+    })
+
+
+    $(function () {
+        $(".product_list").on("click", ".add", function () {
+        if(!localStorage.getItem("user")){
+            	layer.alert('请先登录账户', 
+            	{icon: 6},function(){
+            		window.location.href = "./login.html"
+            	});
+            	return;
+            }
+            var data = $(this).data('info');
+            console.log(data)
+            delete (data.bigImg);
+            delete (data.smallImg);
+            //添加购买睡了
+            data.num = 1;
+            //添加购物人
+           
+			data.uid = JSON.parse(localStorage.getItem("user")).uId
+
+            //把data 通过ajax发送到 后台
+
+            $.ajax({
+                url: "./api/cart",
+                type: "post",
+                data: data,
+                headers: {
+                    token: localStorage.getItem("token")
+                },
+            }).then(function (res) {
+                if(res.status == 1){
+                    layer.msg('加入购物车成功');
+                   } else{
+                    layer.msg('加入购物车失败');
+                   }
+            })
+            var lefts = $('.i-cart').offset().left+'px';
+            console.log(lefts);
+            var ctonimg = $(this).prev('a').children('img').clone().addClass('list_img');
+            $(this).parent('div').append(ctonimg);
+            $(".list_img").animate({
+                left: lefts,
+                opacity: '0',
+                top:"80px",
+                height: '50px',
+                width: '50px',
+                display: 'none'
+            },1800,function(){
+                $(".list_img").hide();
+            });
+
+        })
+    })
+
+    noPC("./app/index_app.html");
+</script>
+
+</html>

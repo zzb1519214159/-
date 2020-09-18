@@ -56,6 +56,10 @@ u {
   text-decoration: none;
 }
 
+a:hover {
+  color: #e3101e !important;
+}
+
 h1,
 h2,
 h3,
@@ -108,6 +112,10 @@ textarea {
 .container {
   width: 100%;
   background-color: #fff;
+}
+
+.mienr {
+  width: 100%;
 }
 
 .footer {

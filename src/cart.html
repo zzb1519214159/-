@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国美商城-购物车</title>
+    <link rel="shortcut icon" href="./images/logotop.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/cart.css">
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/ispc.js"></script>
+    <script src="./js/layer/layer.js"></script>
+    <script src="./swiper/swiper.min.js"></script>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="search"> </div>
+    <div class="cat">
+        <div class="cat-top">
+            <h2>
+                您还没有登录！登录后购物车的商品将保存到您账号中。<a href="login.html">立即登录</a>
+            </h2>
+            <div class="cat-yf">
+                <p><i></i>运费说明</p>
+            </div>
+            <div class="cat-pso">
+                <h3>
+                    <span>配送至：</span>
+                    <p>北京市朝阳区朝外街道 <i></i></p>
+                </h3>
+            </div>
+            <div class="yf-tis">
+                运费说明<br>
+                1、国美自营（含国美超市）商品满99免运费，不满99时收取5元运费；<br>
+                2、运费与配送方式、配送地址及订单实付金额相关（其中优惠券、美豆均不可抵扣运费），最终运费以订单确认页为准；<br>
+                3、国美自营部分大家电商品配送到偏远地区时会收取相应远程费用、过桥费、小区进门费等，此类费用不在免费送货服务内，需您自行承担；<br>
+                4、国美自营（不含国美超市）商品由第三方供应商提供配送服务时免运费；<br>
+                5、国美G5及以上会员，购买国美自营（含国美超市）商品时免运费；<br>
+                6、非国美自营商品按照商家设置的运费标准收取；<br>
+            </div>
+        </div>
+        <div class="cat-con">
+            <table>
+                <thead>
+                    <tr class="cat-tab-header">
+                        <th>
+                            <input type="checkbox" id="ckbox-cx">
+                        </th>
+                        <th>
+                            全选
+                        </th>
+                        <th>
+                            <p>商品信息</p>
+                        </th>
+                        <th>
+                            <p>单价</p>
+                        </th>
+                        <th>
+                            <p>数量</p>
+                        </th>
+                        <th>
+                            <p>小计</p>
+                        </th>
+                        <th>
+                            <p>操作</p>
+                        </th>
+                    </tr>
+                    <tr class="cat-tab-top">
+                        <th>
+                            <img src="./images/logotop.ico" alt="">
+                        </th>
+                        <th colspan="6">
+                            <p> <span>国美网店</span> <i></i> 在线客服</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tab">
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="cat-botm">
+            <div class="cat-botm-con">
+                <div class="botm-left">
+                    <input type="checkbox" name="" id="ckbox-cx2">
+                    <a href="#">全选</a>
+           
+                </div>
+                <div class="botm-right">
+                    <a href="javascript:void(0)" class="cart-bottom-selectgood"> 已选<span style="font-size: 12px;"> 0
+                        </span>件商品 <i></i> </a> 总计（不含运费）：
+                    <span>￥<i id="zj">0</i></span>
+                    <button>去结算</button>
+                </div>
+                <div class="selectgood">
+                    <h2>普通商品<span>2</span> 件</h2>
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+<script>
+    $(function () {
+    	
+    	    
+    var str=localStorage.getItem("user")
+     if(str != null){
+        $('.cat-top>h2').hide();
+  
+    }else{
+        $('.cat-top>h2').show();
+    }
+    	
+        $('.cat-yf').hover(function () {
+            $('.yf-tis').show();
+        }, function () {
+            $('.yf-tis').hover(function () {
+                $('.yf-tis').show();
+            }, function () {
+                $('.yf-tis').hide();
+            });
+        })
+
+        $('.cart-bottom-selectgood').click(function () {
+            $('.selectgood').toggle();
+        })
+
+			if(!localStorage.getItem("user")){
+            	layer.alert('请先登录账户', 
+            	{icon: 6},function(){
+            		window.location.href = "./login.html"
+            	});
+            	return;
+            }
+        $.ajax({
+            url: "./api/getCart",
+            type: "post",
+            headers: {
+                token: localStorage.getItem("token")
+            },
+            data: {
+				uid: JSON.parse(localStorage.getItem("user")).uId
+            }
+        }).then(function (res) {
+            if (!res.data) {
+                return;
+            }
+			
+            console.log(res)
+            var strHtml = ``;
+            [...res.data].forEach(function (el) {
+                strHtml += `<tr class="cat-tab-news">`;
+                strHtml += `<td> <input type='checkbox' class="ckbx"> </td>`;
+                strHtml += ` <td><img src=" ${el.gImg}" alt=""></td>`;
+                strHtml += `<td><p> ${el.gName} </p></td>`;
+                strHtml += `<td>  ${el.gPrice}</td>`;
+                strHtml +=
+                    `<td> <button data-info=${el.cid} class='jian'>-</button><input class='num' value=${el.gNumer}> <button class='jia' data-info=${el.cid}>+</button> </td>`;
+                strHtml += `<td>  <h4>${el.gTotal}</h4> </td>`;
+                strHtml += `<td>  <a data-info=${el.cid} class='del'>删除</a> </td>`;
+                strHtml += `</tr>`;
+                var strtye = `<li><img src=" ${el.gImg}" alt=""></li>`;
+                $('.selectgood ul').append(strtye);
+
+            });
+
+            $('.selectgood span').text($('.selectgood ul li').length)
+            $('.cart-bottom-selectgood span').text($('.selectgood ul li').length)
+            $("#tab").html(strHtml);
+
+            $("#ckbox-cx").on("click", function () {
+                $(":checkbox").prop("checked", $(this).prop('checked'));
+                count();
+            })
+            $("#ckbox-cx2").on("click", function () {
+                $(":checkbox").prop("checked", $(this).prop('checked'));
+                count();
+            })
+            $('tbody :checkbox').click(function () {
+                // checkbox的个数 
+                var $cbxCount = $('tbody :checkbox').length;
+                // 被选中的checkbox的个数
+                var $ckedCount = $('tbody :checkbox:checked').length;
+                // 拿2个数比较,如果相等 就 最上面的 all 打钩
+                $('#ckbox-cx').prop('checked', $cbxCount == $ckedCount)
+                $('#ckbox-cx2').prop('checked', $cbxCount == $ckedCount)
+                count();
+            })
+        })
+
+
+        $("#tab").on("click", ".jian", function () {
+            var num = $(this).next('.num').val();
+            if (num <= 1) {
+                return;
+            }
+            num--;
+
+            $(this).next('.num').val(num);
+
+            var price = $(this).parents("tr").children("td").eq(3).text()
+            $(this).parents("tr").children("td").eq(5).children("h4").text(price * num)
+            count()
+           
+
+            var cid = $(this).data("info");
+            $.ajax({
+                url: "./api/changeCartNuM",
+                type: 'post',
+                headers: {
+                    token: localStorage.getItem("token")
+                },
+                data: {
+                    cid,
+                    gnumer: num
+                }
+            }).then(function (res) {
+
+            })
+
+
+        });
+        //加法
+        $("#tab").on("click", ".jia", function () {
+            var num = $(this).prev('.num').val();
+            num++;
+            $(this).prev('.num').val(num);
+            var price = $(this).parents("tr").children("td").eq(3).text()
+            $(this).parents("tr").children("td").eq(5).children("h4").text(price * num)
+            count()
+            var cid = $(this).data("info");
+            $.ajax({
+                url: "./api/changeCartNuM",
+                type: 'post',
+                headers: {
+                    token: localStorage.getItem("token")
+                },
+                data: {
+                    cid,
+                    gnumer: num
+                }
+            }).then(function (res) {
+
+            })
+        })
+
+        $("#tab").on("click", ".del", function () {
+
+            var self = this;
+            if (!confirm("确定要删除吗")) {
+                return;
+            }
+
+            var cid = $(this).data("info");
+            console.log(cid);
+
+            $.ajax({
+                url: "./api/delete",
+                type: "post",
+                headers: {
+                    token: localStorage.getItem("token")
+                },
+                data: {
+                    cid
+                }
+            }).then(function (res) {
+                alert(res.msg);
+                //数据库里 数据真删除后, 删除页面效果
+
+                $(self).parents("tr").remove();
+            })
+        })
+
+        function count(){
+            let counts = 0;
+            for (let i = 0; i < $("tbody :checkbox").length; i++) {
+                if ($("tbody :checkbox")[i].checked == true) { //注意此块用jquery不好实现
+                counts += parseInt($('tbody').children("tr").eq(i).children("td").eq(5).children("h4").text());
+                }
+            }
+            $('#zj').text(counts);
+        }
+    
+
+        noPC("./app/cat_app.html");
+    })
+
+
+</script>
+
+</html>

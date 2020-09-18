@@ -23,7 +23,14 @@ input {
   padding: 0;
 }
 
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
+  width: 100%;
+  height: 100%;
   font-size: 16px;
   font-family: "微软雅黑";
 }
@@ -47,6 +54,10 @@ i {
 a,
 u {
   text-decoration: none;
+}
+
+a:hover {
+  color: #e3101e !important;
 }
 
 h1,
@@ -96,13 +107,18 @@ textarea {
 
 .content {
   width: 100%;
-  height: 100%;
+}
+
+.container {
+  width: 100%;
+  background-color: #fff;
 }
 
 .footer {
   width: 100%;
   height: 290px;
   background-color: #f7f7f7;
+  margin-top: 15px;
 }
 
 .header-con {
@@ -120,14 +136,16 @@ textarea {
 .header-con li {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
-.header-con a {
+.header-con li > a {
   font-size: 12px;
   color: #888;
 }
 
-.header-con .gome-top-right a, .header-con .gome-top-left a {
+.header-con .gome-top-right a,
+.header-con .gome-top-left a {
   display: flex;
   align-items: center;
 }
@@ -188,7 +206,7 @@ textarea {
   margin-right: 6px;
 }
 
-.gome-top-right > li:nth-child(1) a i {
+.gome-top-right > li:nth-child(1) > a i {
   background-image: url("../images/ui.png");
   background-position: -62px -433px;
   width: 7px;
@@ -197,11 +215,11 @@ textarea {
   margin: 0 6px;
 }
 
-.gome-top-right > li:nth-child(1) a {
+.gome-top-right > li:nth-child(1) > a {
   margin-left: 10px;
 }
 
-.gome-top-right > li:nth-child(2) a i {
+.gome-top-right > li:nth-child(2) > a i {
   background-image: url("../images/ui.png");
   background-position: -62px -433px;
   width: 7px;
@@ -210,11 +228,11 @@ textarea {
   margin: 0 6px;
 }
 
-.gome-top-right > li:nth-child(2) a {
+.gome-top-right > li:nth-child(2) > a {
   margin-left: 10px;
 }
 
-.gome-top-right > li:nth-child(3) a i {
+.gome-top-right > li:nth-child(3) > a i {
   background-image: url("../images/ui.png");
   background-position: -62px -433px;
   width: 7px;
@@ -223,11 +241,11 @@ textarea {
   margin: 0 6px;
 }
 
-.gome-top-right > li:nth-child(3) a {
+.gome-top-right > li:nth-child(3) > a {
   margin-left: 10px;
 }
 
-.gome-top-right > li:nth-child(4) a i {
+.gome-top-right > li:nth-child(4) > a i {
   background-image: url("../images/ui.png");
   background-position: -62px -433px;
   width: 7px;
@@ -236,11 +254,11 @@ textarea {
   margin: 0 6px;
 }
 
-.gome-top-right > li:nth-child(4) a {
+.gome-top-right > li:nth-child(4) > a {
   margin-left: 10px;
 }
 
-.gome-top-right > li:nth-child(5) a i {
+.gome-top-right > li:nth-child(5) > a i {
   background-image: url("../images/ui.png");
   background-position: -62px -433px;
   width: 7px;
@@ -249,11 +267,11 @@ textarea {
   margin: 0 6px;
 }
 
-.gome-top-right > li:nth-child(5) a {
+.gome-top-right > li:nth-child(5) > a {
   margin-left: 10px;
 }
 
-.gome-top-right > li:nth-child(6) a i {
+.gome-top-right > li:nth-child(6) > a i {
   background-image: url("../images/ui.png");
   background-position: -62px -433px;
   width: 7px;
@@ -262,6 +280,109 @@ textarea {
   margin: 0 6px;
 }
 
-.gome-top-right > li:nth-child(6) a {
+.gome-top-right > li:nth-child(6) > a {
   margin-left: 10px;
+}
+
+.drop {
+  position: relative;
+  border: 1px solid #f8f8ff;
+}
+
+.drop div {
+  width: 200px;
+  padding: 15px;
+  position: absolute;
+  top: 31px;
+  right: 0;
+  left: auto;
+  z-index: 999;
+  border: 1px solid #eeeeee;
+  display: none;
+  border-top: 0;
+  background-color: #fff;
+}
+
+.drop div > a {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  background-position: 0 -1511px;
+  background-image: url(../images/ui.png);
+  margin: 0;
+}
+
+.drop:hover {
+  border-color: #eeeeee;
+  border-bottom-color: #fff;
+  border-top: 0;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.drop:hover div {
+  display: block;
+}
+
+.loginsen {
+  position: relative;
+  border: 1px solid #f8f8ff;
+}
+
+.loginsen div {
+  width: 290px;
+  padding: 15px;
+  position: absolute;
+  left: -1px;
+  top: 31px;
+  background: #fff;
+  z-index: 999;
+  border: 1px solid #eeeeee;
+  display: none;
+  border-top: 0;
+}
+
+.loginsen div .user_name {
+  width: 55px !important;
+  height: 55px !important;
+  border-radius: 50px;
+  display: block !important;
+  background-image: url(../images/ui.png) !important;
+  background-position: 0 -337px !important;
+}
+
+.loginsen div p {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #999;
+  margin-left: 20px;
+}
+
+.loginsen div p a {
+  color: #069;
+}
+
+.loginsen:hover {
+  border-color: #eeeeee;
+  border-bottom-color: #fff;
+  border-top: 0;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.loginsen:hover div {
+  display: flex;
+  align-items: center;
+}
+
+#ipone_hover {
+  width: auto;
+}
+
+#ipone_hover a {
+  display: inline-block;
+  height: 170px;
+  width: 130px;
+  background-position: 0 -799px;
 }

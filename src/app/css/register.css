@@ -1,0 +1,92 @@
+.register_app{
+    width: 100%;
+    height: 100%;
+}
+.register_app img{
+    width: 4.4rem;
+    height: 2.4rem;
+    display: block;
+    margin: .2rem auto .4rem;
+}
+.register_form{
+    width: 80%;
+    margin:  0 auto;
+}
+.register_form>div{
+    margin: .2rem 0;
+}
+.register_form div>label{
+    height: 100%;
+    display: inline-block;
+    width: 100%;
+}
+.register_form label>input{
+    font-size: .3rem;
+    padding: .2rem 0;
+    height: .85rem;
+    box-sizing: border-box;
+    width: 100%;
+    border-style: none;
+    border-bottom: .02rem solid #EBECED;
+}
+.register_form div>label span{
+    color: red;
+}
+.code>input{
+    width: 60% !important;
+}
+#idcode{
+    width:40%;
+    height: 100%;
+    display: block;
+    float: right;
+}
+#idcode>div{
+    display: block;
+    height: 100%;
+    text-align: center;
+    margin-top: .1rem;
+}
+#idcode font{
+    font-size: .62rem;  
+  }
+#sex{
+    font-size: .3rem;
+    padding: .2rem 0;
+    height: .85rem;
+    box-sizing: border-box;
+    width: 100%;
+    border-style: none;
+    border-bottom: .02rem solid #EBECED;
+  }
+  .register_btn{
+    background: -webkit-linear-gradient(left,#FA1E8C 0,#FC1E56 100%);
+    height: .88rem;
+    width: 100%;
+    margin: .30rem 0;
+    color: #fff;
+    font-size: .32rem;
+    border-style: none;
+    border-radius: .55rem;
+    outline: none;
+  }
+  
+    #tong{
+            width: 1.5rem;
+            height: .3rem;
+            line-height: .3rem;
+            font-size: .24rem;
+            text-align: center;
+            color: #fff;
+            background-color: #000;
+            opacity: .4;
+            height: .8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+        #tong a{
+            color: red;
+        }

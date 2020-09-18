@@ -1,31 +1,32 @@
-
-
-.header-con{
-     width: 1200px;
+@import "./base.scss";
+.header-con {
+    width: 1200px;
     height: 31px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    ul{
+    ul {
         display: flex;
     }
-    li{
+    li {
         display: flex;
         align-items: center;
+        position: relative;
     }
-    a{
+    li > a {
         font-size: 12px;
         color: #888;
     }
-    .gome-top-right a,.gome-top-left a{
+    .gome-top-right a,
+    .gome-top-left a {
         display: flex;
         align-items: center;
     }
-    .gome-top-left li:nth-child(1) a{
+    .gome-top-left li:nth-child(1) a {
         margin-left: 10px;
         margin-right: 15px;
     }
-    .gome-top-left li:nth-child(1) i{
+    .gome-top-left li:nth-child(1) i {
         background-image: $icon-bg;
         background-position: -62px -433px;
         width: 7px;
@@ -33,24 +34,24 @@
         display: block;
         margin: 0 6px;
     }
-    .gome-top-left li:nth-child(2) a{
+    .gome-top-left li:nth-child(2) a {
         margin-right: 10px;
     }
-    .gome-link-register{
+    .gome-link-register {
         color: #f5004b;
     }
-    .gome-link-register i{
+    .gome-link-register i {
         width: 12px;
         height: 13px;
         background-image: $icon-bg;
         background-position: -145px -1496px;
         margin-left: 5px;
     }
-    .gome-top-right>li:nth-child(1) a{
+    .gome-top-right > li:nth-child(1) a {
         margin-right: 10px;
     }
-    .gome-service em{
-        background-image:url(../images/客服.png);
+    .gome-service em {
+        background-image: url(../images/客服.png);
         width: 15px;
         height: 15px;
         display: block;
@@ -59,8 +60,8 @@
         background-size: 100%;
         margin-right: 6px;
     }
-    .gome-phone em{
-        background-image:url(../images/手机.png);
+    .gome-phone em {
+        background-image: url(../images/手机.png);
         width: 15px;
         height: 15px;
         display: block;
@@ -69,11 +70,9 @@
         background-size: 100%;
         margin-right: 6px;
     }
-
-
 }
 @for $i from 0 to 6 {
-    .gome-top-right>li:nth-child(#{$i+1}) a i{
+    .gome-top-right > li:nth-child(#{$i + 1}) > a i {
         background-image: $icon-bg;
         background-position: -62px -433px;
         width: 7px;
@@ -81,8 +80,102 @@
         display: block;
         margin: 0 6px;
     }
-    .gome-top-right>li:nth-child(#{$i+1}) a{
+    .gome-top-right > li:nth-child(#{$i + 1}) > a {
         margin-left: 10px;
     }
-   
+}
+//鼠标悬停下拉菜单
+.drop {
+    position: relative;
+    border: 1px solid #f8f8ff;
+    div {
+        width: 200px;
+        padding: 15px;
+        position: absolute;
+        top: 31px;
+        right: 0;
+        left: auto;
+        z-index: 999;
+        border: 1px solid #eeeeee;
+        display: none;
+        border-top: 0;
+        background-color: #fff;
+    }
+    div > a {
+        display: inline-block;
+        height: 200px;
+        width: 200px;
+        background-position: 0 -1511px;
+        background-image: url(../images/ui.png);
+        margin: 0;
+    }
+}
+
+.drop:hover {
+    border-color: #eeeeee;
+    border-bottom-color: #fff;
+    border-top: 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    div {
+        display: block;
+    }
+}
+
+.loginsen {
+    position: relative;
+    border: 1px solid #f8f8ff;
+    div {
+        width: 290px;
+        padding: 15px;
+        position: absolute;
+        left: -1px;
+        top: 31px;
+        background: #fff;
+        z-index: 999;
+        border: 1px solid #eeeeee;
+        display: none;
+        border-top: 0;
+       
+        .user_name {
+            width: 55px !important;
+            height: 55px !important;
+            border-radius: 50px;
+            display: block !important;
+            background-image: url(../images/ui.png) !important;
+            background-position: 0 -337px !important;
+            
+        }
+        p{
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+            margin-left: 20px;
+            a{
+                color: #069
+            }
+          }
+    }
+}
+.loginsen:hover{
+    border-color: #eeeeee;
+    border-bottom-color: #fff;
+    border-top: 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    div{
+        display: flex;
+        align-items: center;
+    }
+}
+#ipone_hover{
+    width: auto;
+
+    a{
+        display: inline-block;
+    height: 170px;
+    width: 130px;
+    background-position: 0 -799px;
+    }
 }

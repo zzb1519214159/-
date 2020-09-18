@@ -120,44 +120,35 @@
                 top: calc(50% - 30px)
             }
 
-            .slider{
+            //轮播图插件
+            #slider_swiper{
+                width:389px;
+                height: 470px; 
+                float: left;
+                margin: 0;
+                .button-next2,.button-prev2{
+                    background-color: #333;
+                    opacity:.5;
+                    color: #fff;
+                    width: 40px;
+                    height: 60px;
+                }
+                .button-next2{
+                    right: 0px;
+                }
+                .button-prev2{
+                    left: 0px;
+                }
+               
+            }
+          
+
+            
+            #slider{
                 width:389px;
                 height: 470px;
                 float: left;
-                position: relative;
-            .slider_waoe{
-                width:389px;
-                height: 470px;
-               
-             }
-             .slider_waoe>li{
-                 width: 100%;
-                 height: 100%;
-                 position: absolute;
-                 top: 0;
-             }
-             .slider_waoe>li>a{
-                 display: block;
-               
-             }
-             .slider>ul>li>img{
-                width:389px;
-                height: 470px;
-             }
-                 ol{
-                     position: absolute;
-                     left: calc(50% - 20px);
-                    bottom: 121px;
-                    display: flex;
-                    width: 40px;
-                    justify-content:space-between;
-                    margin: 0 auto;
-                 }
-                 ol>li{
-                     width: 18px;
-                     height: 5px;
-                     display: block;                    
-                 }
+         
                  .slider_list_waps{
                     width: 372px;
                     height: 102px;
@@ -176,7 +167,7 @@
                     justify-content: center;
                     align-items: center;
                     background: #fff;
-                    opacity: .9;
+                 
                     img{
                         width: 100px;
                         height: 30px;
@@ -277,3 +268,5 @@
     }
    
 }
+
+

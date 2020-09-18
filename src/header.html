@@ -1,16 +1,43 @@
 <div class="header-con">
     <ul class="gome-top-left">
-        <li><a href="#">国美会员<i></i></a></li>
-        <li><a href="#">登录</a>
-            <a href="#" class="gome-link-register">注册有礼<i></i></a>
+        <li class="loginsen"><a href="#">国美会员<i></i></a>
+            <div>
+                <i class="user_name"></i>
+                <p class="login_tm">欢迎来到国美,请<a href="login.html">登录</a></p>
+            </div>
+        </li>
+        <li>
+            <a href="login.html" class="login-pm">登录</a>
+            <a href="register.html" class="gome-link-register">注册有礼<i></i></a>
         </li>
     </ul>
     <ul class="gome-top-right">
         <li><a href="#">我的订单 </a></li>
         <li><a href="#">我的国美<i></i></a></li>
-        <li><a href="#">企业采购<i></i></a></li>
+        <li class="drop"><a href="#">企业采购<i></i></a>
+            <div>
+                <a href="#"></a>
+            </div>
+        </li>
         <li><a href="#" class="gome-service"><em></em>服务中心<i></i> </a></li>
-        <li><a href="#">网站导航<i></i> </a></li>
-        <li><a href="#" class="gome-phone"><em></em>手机国美<i></i></a></li>
+        <li><a href="puctrone.html">商品列表<i></i> </a></li>
+        <li class="drop"><a href="#" class="gome-phone"><em></em>手机国美<i></i></a>
+            <div id="ipone_hover">
+                <a href="#"></a>
+            </div>
+        </li>
     </ul>
  </div>
+<script>
+    var str=localStorage.getItem("user")
+    if(str != null){
+        var strs =  JSON.parse(str);
+        console.log(strs.uName);
+        $('.login_tm').text(strs.uName);
+       $('.login-pm').hide();
+    }else{
+        var tom = `欢迎来到国美,请<a href="login.html">登录</a>`
+        $('.login_tm').html(tom);
+       $('.login-pm').show();
+    }
+</script>
